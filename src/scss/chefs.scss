@@ -1,0 +1,77 @@
+//====================================================================================================
+
+//Chefs
+.chefs {
+
+  &__container {
+    display: grid;
+    @include adaptiveValue("gap", 90, 65);
+  }
+
+  &__title {}
+
+  &__title-main {}
+
+  &__title-text {}
+
+  &__items {
+    display: grid;
+    gap: rem(30);
+    justify-items: center;
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    @media (min-width:$mobile) and (max-width:$tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {}
+}
+
+.item-chefs {
+  display: grid;
+  gap: rem(24);
+
+  &__top {
+    display: flex;
+    gap: rem(24);
+    align-items: center;
+  }
+
+  &__avatar {
+    img {
+      width: 65px;
+      max-width: 65px;
+    }
+  }
+
+  &__info {
+    display: grid;
+    gap: rem(6);
+  }
+
+  &__name {
+    font-size: rem(18);
+    line-height: 1.16;
+    letter-spacing: -0.225px;
+  }
+
+  &__prof {
+    font-size: rem(12);
+    line-height: 1.33;
+    letter-spacing: -0.15px;
+    color: rgba($mainColor, 0.5);
+  }
+
+  &__bottom {
+    display: flex;
+    @include adaptiveValue("gap", 30, 5, 1110, 991);
+
+    @media (max-width:$mobileSmall) {
+      gap: rem(5);
+    }
+  }
+}

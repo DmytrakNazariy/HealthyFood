@@ -1,0 +1,117 @@
+//====================================================================================================
+
+//Hero
+.hero {
+  @include adaptiveValue("padding-top", 170, 90);
+  @include adaptiveValue("padding-bottom", 350, 200);
+  background: url(../img/hero/hero-bg.jpg) center center / cover no-repeat;
+
+  &__container {
+    display: grid;
+    @include adaptiveValue("gap", 70, 35);
+  }
+
+  &__header {
+    display: grid;
+    text-align: center;
+    justify-items: center;
+  }
+
+  &__title {
+    @include adaptiveValue("font-size", 72, 30);
+    line-height: 1.16;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    animation: leftToRight 1.7s ease; //0.1s;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    & span {
+      font-weight: 900;
+    }
+  }
+
+  &__subtitle {
+    line-height: 1.62;
+    letter-spacing: -0.2px;
+    opacity: 0.7;
+    max-width: 595px;
+    animation: rightToLeft 1.7s ease; //0.1s;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 40, 20);
+    }
+  }
+
+  &__button {
+    padding: 25px 57px;
+    background-color: $secondaryColor;
+    border-radius: 43px;
+    font-weight: 700;
+    font-size: rem(18);
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 0.2em;
+    color: $blackColor;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    animation: BtnToUp 1.7s ease; //0.1s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $blackColor;
+        color: $secondaryColor;
+      }
+    }
+  }
+
+  &__items {}
+
+  &__item {}
+}
+
+@keyframes leftToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rightToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes BtnToUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

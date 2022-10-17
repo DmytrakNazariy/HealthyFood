@@ -1,0 +1,88 @@
+//====================================================================================================
+
+//Work
+.work {
+  &__container {
+    display: grid;
+    @include adaptiveValue("gap", 110, 60);
+  }
+
+  &__title {}
+
+  &__title-main {}
+
+  &__title-text {}
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width:$mobile) and (max-width:$tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    padding: 24px;
+  }
+}
+
+.item-work {
+  background-color: $darkGrayColor;
+  display: grid;
+  gap: 36px;
+  transition: all 0.3s ease 0s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: $secondaryColor;
+
+      .item-work__title {
+        color: #191919;
+
+        &::after {
+          background-color: #191919;
+        }
+      }
+
+      .item-work__text {
+        color: #191919;
+      }
+    }
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: rem(22);
+    letter-spacing: -0.275px;
+    text-transform: capitalize;
+    color: $mainColor;
+    position: relative;
+    transition: all 0.3s ease 0s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 56px;
+      height: 2px;
+      background-color: $secondaryColor;
+      bottom: rem(-20);
+      left: 0;
+    }
+  }
+
+  &__text {
+    font-style: normal;
+    font-size: rem(13);
+    line-height: 1.38;
+    letter-spacing: -0.1625px;
+    color: rgba($mainColor, 0.5);
+    transition: all 0.3s ease 0s;
+  }
+}

@@ -1,0 +1,178 @@
+// Заголовки, общие БЄМ блоки и проче...
+
+//Section-title
+.title {
+
+  &__main {
+    font-style: normal;
+    font-weight: 400;
+    font-size: rem(30);
+    letter-spacing: 0.2em;
+    color: #d9d9d9;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    text-transform: capitalize;
+  }
+
+  &__main_line {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 2px;
+      background-color: $secondaryColor;
+      @include adaptiveValue("bottom", -50, -25);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__main-text {
+    font-style: normal;
+    font-weight: 900;
+    @include adaptiveValue("font-size", 100, 70);
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+    color: #303030;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    text-transform: uppercase;
+  }
+
+}
+
+//Item-info
+.item-info {
+  display: grid;
+  text-align: center;
+  justify-items: center;
+  @include adaptiveValue("gap", 15, 5);
+
+
+  &__img {}
+
+  &__title {
+    line-height: 1.88;
+    align-self: start;
+  }
+
+  &__text {
+    opacity: 0.5;
+  }
+}
+
+//Section-padding
+[class*="_section"] {
+  @include adaptiveValue("padding-top", 120, 40);
+  @include adaptiveValue("padding-bottom", 30, 20);
+}
+
+//Activity
+.activity {
+  display: flex;
+  gap: rem(24);
+
+  &__views {
+    display: flex;
+    align-items: center;
+    gap: rem(16)
+  }
+
+  &__views-count {
+    font-weight: 700;
+    color: #D8D8D8;
+  }
+
+  &__comments {
+    display: flex;
+    align-items: center;
+    gap: rem(14)
+  }
+
+  &__comments-count {
+    font-weight: 700;
+    color: #D8D8D8;
+  }
+}
+
+//Btn
+.btn {
+  padding: 11.5px 28.5px;
+  border: 2px solid #303030;
+  border-radius: 30px;
+  background: #262626;
+  font-weight: 900;
+  font-size: rem(10);
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba($mainColor, 0.5);
+  transition: all 0.3s ease 0s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: $secondaryColor;
+      border-color: $secondaryColor;
+      color: $darkGrayColor;
+    }
+  }
+}
+
+//Info-items
+.info-items {
+  display: grid;
+  row-gap: rem(32);
+
+  @media (min-width:$mobile) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: rem(90);
+  }
+}
+
+//Info-items
+.info-item {
+  display: grid;
+  text-align: center;
+  justify-items: center;
+  @include adaptiveValue("gap", 15, 5);
+  animation: check 1.7s ease; //0.1s;
+
+
+  &__img {}
+
+  &__title {
+    line-height: 1.88;
+    align-self: start;
+  }
+
+  &__text {
+    opacity: 0.5;
+    line-height: 1.6;
+  }
+}
+
+@keyframes Items {
+  0% {
+    transform: translateX(-1000px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+//Logo
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.logo-text-img {
+  position: relative;
+  top: 3px;
+}

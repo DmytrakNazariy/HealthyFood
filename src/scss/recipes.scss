@@ -1,0 +1,175 @@
+//====================================================================================================
+
+//Recipes
+.recipes {
+
+  &__container {
+    display: grid;
+    gap: 90px;
+  }
+
+  &__title {}
+
+  &__title-main {}
+
+  &__title-text {}
+
+  &__content {
+    display: grid;
+    gap: rem(30);
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  &__items {
+    display: grid;
+    gap: rem(30);
+  }
+
+  &__item {
+    padding: 30px;
+    background-color: $darkGrayColor;
+  }
+}
+
+.card-recipes {
+  @include adaptiveValue("padding-top", 60, 15);
+  @include adaptiveValue("padding-bottom", 60, 15);
+  @include adaptiveValue("padding-left", 90, 25);
+  @include adaptiveValue("padding-right", 90, 25);
+  background: url(../img/recipes/recipes-card-bg.jpg) center center / cover no-repeat;
+  padding: 60px 90px;
+  color: $mainColor;
+  position: relative;
+
+  &__decor {
+    width: 40px;
+    height: 40px;
+    background: url(../img/recipes/card-recipes-arrow.png) center center no-repeat rgba($color: #000000, $alpha: 0.3);
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border-radius: 50%;
+
+    @media (max-width:$mobileSmall) {
+      display: none;
+    }
+  }
+
+  &__suptitle {
+    font-weight: 900;
+    font-size: rem(12);
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    padding: 9px 16px;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    border-radius: 6px;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 65, 30);
+    }
+  }
+
+  &__date {
+    font-size: 14px;
+    line-height: 2.14;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 25, 10);
+    }
+  }
+
+  &__quote {
+    font-size: rem(24);
+    line-height: 1.67;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 45, 25);
+    }
+  }
+
+  &__author {
+    font-size: rem(14);
+    line-height: 2.14;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 65, 30);
+    }
+  }
+}
+
+.item-recipes {
+  display: grid;
+  gap: rem(10);
+  border-radius: 6px;
+  transition: all 0.3s ease 0s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: $secondaryColor;
+
+      .item-recipes__text,
+      .item-recipes__date,
+      .item-recipes__views-count,
+      .item-recipes__comments-count {
+        color: #000;
+      }
+
+      .item-recipes__category {
+        background-color: rgba($color: #000000, $alpha: 1);
+      }
+    }
+  }
+
+  &__text {
+    line-height: 1.88;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width:$mobileSmall) {
+      flex-direction: column;
+      align-items: start;
+      gap: rem(16);
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: rem(15);
+    align-items: center;
+    position: relative;
+  }
+
+  &__category {
+    font-weight: 900;
+    font-size: rem(12);
+    padding: 9px 18px;
+    text-align: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    color: $mainColor;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    border-radius: 6px;
+    mix-blend-mode: normal;
+  }
+
+  &__date {
+    font-size: rem(12);
+    color: #B3B3B3;
+  }
+}

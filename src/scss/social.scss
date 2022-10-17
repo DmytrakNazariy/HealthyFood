@@ -1,0 +1,122 @@
+//====================================================================================================
+
+//Social
+.social {
+  @include adaptiveValue("padding-bottom", 120, 40);
+
+  &__container {
+    display: grid;
+    gap: 90px;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(30);
+
+    @media (max-width:$pc) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width:$mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.item-social {
+  padding: 0 15px;
+  background-color: $darkGrayColor;
+  border-radius: 6px;
+  position: relative;
+
+  &:last-child {
+    @media (min-width:$mobile) and (max-width:$pc) {
+      grid-column: -3 / -1;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #303030;
+    top: 90px;
+    left: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid #303030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $secondaryColor;
+        border: 2px solid $blackColor;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__name {
+    font-size: rem(14);
+    line-height: 2.14;
+    color: #BFBFBF;
+
+    @media (max-width:$mobileSmall) {
+      display: none;
+    }
+  }
+
+  &__btn {
+    padding: 13.5px 17.5px;
+  }
+
+  &__content {
+    display: grid;
+    gap: rem(10);
+    padding: 20px 30px;
+  }
+
+
+  &__date {
+    font-size: rem(14);
+    line-height: 2.14;
+    color: $lightGrayColor;
+  }
+
+  &__text {
+    font-size: rem(14);
+    line-height: 2.14;
+    color: rgba($mainColor, $alpha: 0.7);
+  }
+
+  &__author {
+    font-size: rem(14);
+    line-height: 2.14;
+    color: $secondaryColor;
+  }
+}

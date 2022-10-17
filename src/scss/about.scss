@@ -1,0 +1,85 @@
+//====================================================================================================
+
+//About
+.about {
+
+  &__container {
+    display: grid;
+    gap: 80px;
+  }
+
+  &__content {
+    margin-top: -220px;
+    border-radius: 6px;
+    @include adaptiveValue("padding-top", 90, 45);
+    @include adaptiveValue("padding-bottom", 90, 45);
+    @include adaptiveValue("padding-right", 65, 30);
+    @include adaptiveValue("padding-left", 65, 30);
+    background-color: $darkGrayColor;
+    text-align: center;
+    display: grid;
+    @include adaptiveValue("gap", 60, 30);
+    justify-items: center;
+    position: relative;
+  }
+
+  &__text {
+    max-width: 734px;
+  }
+}
+
+.about-swiper {
+  width: 100%;
+  // position: relative;
+  max-width: 734px;
+}
+
+.about-swiper-wrapper {}
+
+
+.about-swiper-slide {
+
+
+  &__image-ibg {
+    padding-bottom: percent(270, 350);
+
+    img {
+      // max-width: 100%;
+    }
+  }
+}
+
+.slider-next,
+.slider-prev {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: rem(160);
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: 2px solid #303030;
+  transition: all 0.3s ease 0s;
+
+  @media (max-width:$pc) {
+    display: none;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: $blackColor;
+    }
+  }
+}
+
+.slider-prev {
+  left: rem(65);
+
+  img {
+    transform: rotate(-180deg);
+  }
+}
+
+.slider-next {
+  right: rem(65);
+}
